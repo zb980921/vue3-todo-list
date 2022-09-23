@@ -25,26 +25,27 @@ export default defineComponent({
 
         <TodoInput />
 
-        <NScrollbar class="my-[20px]">
-          {todoStore.todoItemList.map((item) => {
-            return <TodoItem key={item.id} data={item} />
-          })}
-        </NScrollbar>
-
         {todoStore.todoItemList.length > 0 && (
-          <div class="flex justify-between text-[20px]">
-            <button
-              class="bg-green-500 text-white py-[10px] px-[16px] cursor-pointer hover:bg-green-400 active:bg-green-600"
-              onClick={() => todoStore.clearDone()}
-            >
-              Clear Done
-            </button>
-            <button
-              class="bg-red-500 text-white py-[10px] px-[16px] cursor-pointer hover:bg-red-400 active:bg-red-600"
-              onClick={onClearAll}
-            >
-              Clear All
-            </button>
+          <div>
+            <NScrollbar class="my-[20px] max-h-[500px] px-[20px]">
+              {todoStore.todoItemList.map((item) => {
+                return <TodoItem key={item.id} data={item} />
+              })}
+            </NScrollbar>
+            <div class="flex justify-between text-[20px]">
+              <button
+                class="bg-green-500 text-white py-[10px] px-[16px] cursor-pointer hover:bg-green-400 active:bg-green-600"
+                onClick={() => todoStore.clearDone()}
+              >
+                Clear Done
+              </button>
+              <button
+                class="bg-red-500 text-white py-[10px] px-[16px] cursor-pointer hover:bg-red-400 active:bg-red-600"
+                onClick={onClearAll}
+              >
+                Clear All
+              </button>
+            </div>
           </div>
         )}
       </div>

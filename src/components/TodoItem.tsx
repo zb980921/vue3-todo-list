@@ -30,6 +30,7 @@ export default defineComponent({
             <input
               type="checkbox"
               class="w-[30px] h-[30px] rounded-full cursor-pointer"
+              checked={done}
               onChange={() => todoStore.setTodoItemDone(id)}
             />
             <span class="ml-[10px]" style={done ? doneStyle : {}}>
